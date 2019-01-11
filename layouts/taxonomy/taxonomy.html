@@ -1,0 +1,16 @@
+{{ partial "header.html" . }}
+  <main  id="main-content">
+    <h1 class="page-title">{{.Data.Singular}}: {{ .Data.Term }}</h1>
+     {{ .Content }}
+	<div class="items">
+    {{ $paginator := .Paginate (.Data.Pages) }}
+    {{ range $paginator.Pages }}
+      {{ partial "summary.html" . }}
+    {{ end }}
+    <article class="empty-article" aria-hidden="true">&nbsp;</article>
+    <article class="empty-article" aria-hidden="true">&nbsp;</article>
+	</div>
+    {{ partial "pagination.html" . }}
+  </main>
+{{ partial "footer.html" . }}
+

@@ -1,0 +1,13 @@
+{{ partial "header.html" . }}
+<main>
+    <h1 class="page-title">{{ .Title }}</h1>
+    <div class="items">
+        {{ $paginator := .Paginate (where .Data.Pages "Type" "books") }}
+        {{ range $paginator.Pages }}
+        {{ partial "summary.html" . }}
+        {{ end }}
+        {{ partial "pagination.html" . }}
+    </div>
+</main>
+{{ partial "sidebar.html" . }}
+{{ partial "footer.html" . }}

@@ -1,0 +1,35 @@
+		{{- $pageurl := .URL -}}
+<aside class="sidebar">
+	<div>
+		<ul><li {{- if eq $pageurl "/books/" }} class="active"{{ end -}}><a href="/books/" >All books</a></li></ul>
+		
+
+<div class="section-label">Languages</div>
+	<ul>
+    {{ range $name, $taxonomy := .Site.Taxonomies.languages }}	
+        {{ with $.Site.GetPage (printf "/languages/%s" $name) }}
+        {{- $thisurl := .RelPermalink -}}
+      	{{ if eq $pageurl $thisurl }}
+			<li class="active" ><span>{{ $name }}</span></li>
+			{{- else -}}
+			<li><a href="{{ .Permalink }}">{{ $name }}</a></li>
+			{{ end -}}
+        {{ end }}
+    {{ end }}
+	</ul>
+
+	<div class="section-label">Subjects</div>
+	<ul>				
+    {{ range $name, $taxonomy := .Site.Taxonomies.subjects }}
+        {{ with $.Site.GetPage (printf "/subjects/%s" $name) }}
+        {{- $thisurl := .RelPermalink -}}
+		 	{{ if eq $pageurl $thisurl }}
+			<li class="active" ><span>{{ $name }}</span></li>
+			{{- else -}}
+			<li><a href="{{ .Permalink }}">{{ $name }}</a></li>
+			{{ end -}}
+        {{ end }}
+    {{ end }}
+	</ul>
+</div>
+</aside>
