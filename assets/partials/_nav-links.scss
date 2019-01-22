@@ -1,5 +1,8 @@
+$nav-link-color: #000000 !default;
+
 .nav-links {
-  margin-top: 1rem;
+  margin: 1rem 0;
+
   ul {
     margin: 0 auto 7px;
     display: inline-block;
@@ -13,6 +16,9 @@
       content: '\2022';
       padding: .4em;
     }
+  }
 
+  a:link, a:visited {
+    color: $nav-link-color;
   }
 }
