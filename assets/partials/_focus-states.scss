@@ -1,0 +1,12 @@
+$focus-color: orange !default;
+
+a:focus {
+  box-shadow: 0px 0px 0px 5px $focus-color;
+  outline: 3px;
+  z-index: 100;
+}
+
+a {
+  transition: all .3s;
+  font-weight: bold
+}
