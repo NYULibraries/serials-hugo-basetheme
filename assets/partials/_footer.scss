@@ -1,4 +1,5 @@
 $page-header-background-color: #efefef !default;
+$footer-height: 120px !default;
 
 .contain-footer {
   background-color: $page-header-background-color;
@@ -16,5 +17,31 @@ $page-header-background-color: #efefef !default;
     font-weight: 400;
     letter-spacing: 1px;
     font-size: .9rem;
+  }
+}
+
+@media (min-width: 269px) {
+  html {
+    position: relative;
+    min-height: 100%;
+  }
+
+  body {
+    margin-bottom: $footer-height + 150px;
+  }
+
+  .contain-footer {
+    position: absolute;
+    bottom: 0;
+    height: $footer-height;
+    width: 100%;
+  }
+
+  body.ispage.books {
+    margin-bottom: 0px;
+
+    .contain-footer {
+      display: none;
+    }
   }
 }
