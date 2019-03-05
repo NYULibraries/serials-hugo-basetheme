@@ -1,47 +1,22 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode | default "en-us" }}">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    {{ if eq .Section "books"}}
-    <title>{{ .Title }}: {{ .Site.Params.Shorttitle }}: NYU Press</title>
-    {{ else }}
-    <title>{{ .Title }}: NYU Press</title>
-    {{ end }}
-    {{ with .Params.description }}
-    <meta name="description" content="{{ . }}">{{- end }}
-    {{- with .Site.Params.author }}
-    <meta name="author" content="{{ . }}">{{ end }}
-    {{- $options := (dict "targetPath" "/css/style.css" "outputStyle" .Site.Params.sassOutputFormat "enableSourceMap" .Site.Params.enableSourceMap "includePaths" (slice "themes/dlts-books/assets")) -}}
-    {{- $style := resources.Get "style.scss" | resources.ToCSS $options }}
-    <link rel="stylesheet" href="{{ $style.Permalink }}">
-    <script src="{{ .Site.BaseURL }}/js/pattern-library-3.0.1.min.js"></script>
-    {{- if .RSSLink -}}
-    <link href="{{ .RSSLink }}" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}">{{- end }}
-    {{ partial "opengraph_meta.html" . -}}
-    {{ .Hugo.Generator -}}
-</head>
+  <head>
+    {{ partial "head-html.html" . -}}
+  </head>
 
-<body>
+  <body class="{{- if .IsHome -}}ishome {{ end -}}{{if .IsNode}}isnode {{end}}{{if .IsPage}}ispage{{end}} {{ with .Type }}{{ . }}{{ end }} {{ with .Kind }}{{ . }}{{ end }}">
     <header class="page-header">
-        <div id="skipnav"><a href="#main-content">Skip navigation</a></div>
-        <div class="top-hold">
-            <div class="logo"><a href="https://nyupress.org" class="brand"><img src="/opensquare/images/NYUPLogo.png" alt="NYU Press"></a></div>
-            <a class="site-title" href="{{ .Site.BaseURL }}">{{ .Site.Title }}: <span class="tagline">{{.Site.Params.tagline}}<span></a>
+      <div id="skipnav"><a href="#main-content">Skip navigation</a></div>
+      <div class="top-hold">
+        <div class="logo"><a href="https://nyupress.org" class="brand"><img src="/opensquare/images/NYUPLogo.png" alt="NYU Press"></a></div>
+        <a class="site-title" href="{{ .Site.BaseURL }}">{{ .Site.Title }}: <span class="tagline">{{.Site.Params.tagline}}<span></a>
+      </div>
+      <div class="navhold">
+        <div class="inner">
+          {{ partial "nav-links-main.html" . }}
+          <div class="searchbox" role="search">{{ partial "searchbox.html" . }}</div>
         </div>
-        <div class="navhold">
-            <div class="inner">
-                <nav>
-                    <ul>
-                        {{ range .Site.Menus.main }}
-                        <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
-                        {{ end }}
-                    </ul>
-                </nav>
-                <div class="searchbox" role="search">{{ partial "searchbox.html" . }}</div>
-            </div>
-        </div>
+      </div>
     </header>
     <div class="contain-main">
