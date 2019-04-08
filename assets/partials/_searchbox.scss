@@ -16,7 +16,7 @@ $submit-button-bg: #ffffff !default;
     font-size: 1rem;
 
     &:focus {
-      // higher z-index specified so that 
+      // higher z-index specified so that
       // outline/border for focus will be fully visible --
       // not "under" another element
       z-index: 2;
