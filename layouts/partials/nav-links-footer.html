@@ -1,7 +1,7 @@
 <nav class="nav-links">
   <ul>
     {{- range .Site.Menus.footer -}}
-    <li><a href="{{ .URL | relURL }}">{{ .Name -}}</a></li>
+    <li><a href="{{ .URL | relURL }}" {{- if eq .Identifier "external" -}} target="_blank" class="external"{{- end -}}>{{ .Name -}}</a></li>
     {{- end -}}
   </ul>
 </nav>
