@@ -1,0 +1,61 @@
+{{ $metadatadirections := "md-ltr" -}}
+{{ range $elem_val := .Params.languages -}}
+{{ if eq $elem_val "Arabic" -}}
+{{ $metadatadirections = "md-bothdirs" -}}
+{{ end -}}
+{{ end -}}
+<article class="book-summary {{ $metadatadirections  }} {{ range .Params.languages }}booklanguage{{ . }} {{ end }}">
+    {{ if .Params.thumbHref }}
+    <div class="thumb"><img role="presentation" src="{{ .Params.thumbHref }}"></div>{{ end }}
+        <div class="meta-group">
+            <header class="field_group">
+                {{ if .Params.ar_title -}}
+                <div class="title_group" dir="rtl"><a href="{{ .Permalink }}"><h3 class="book-title book-title-ar" dir="rtl">{{ .Params.ar_title }}</h3></a></div>
+                {{ end -}}
+                <div class="title_group" dir="ltr"><a href="{{ .Permalink }}"><h3 class="book-title">{{ .Title -}}</h3>
+                    {{ if .Params.subtitle -}}<div class="book-subtitle">{{.Params.subtitle}}</div>{{ end -}}</a></div>
+            </header>
+
+            <div class="field_group">
+                {{ if .Params.ar_title -}}
+                <div class="ar_author tags" dir="rtl">
+                    <ul>{{ range .Params.ar_author }}<li>{{ . }}</li>{{ end -}}</ul>
+                </div>
+                {{ end -}}
+                <div class="author tags" dir="ltr">
+                    <span>Author:</span>
+                    <ul>{{ range .Params.author }}<li>{{ . }}</li>{{ end }}</ul>
+                </div>
+            </div>
+            
+            <div class="field_group">
+                {{ if .Params.ar_publishers -}}
+                <div class="publishers tags" dir="rtl">
+                    <ul>{{ range .Params.ar_publishers -}}
+                        <li>{{ . }}</li>{{ end }}</ul>
+                </div>{{ end -}}
+                {{ if .Params.publishers }}
+                <div class="publishers tags" dir="ltr"><span>Publisher{{ if gt (len .Params.publishers) 1 }}s{{ end }}:</span>
+                    <ul>{{ range .Params.publishers -}}
+                        <li>{{ . }}</li>{{ end -}}</ul>
+                </div>{{ end }}
+            </div>
+            <div class="ss_publication_date_text"><span>Publication Date:</span> {{ .Params.ss_publication_date_text }}</div>
+            {{ $pubdate := (.Params.ss_publication_date_text) -}}
+            {{ $pubdate2 := (.Params.iass_pubyear) -}}
+            {{ if .Params.iass_pubyear -}}
+            {{ if ne $pubdate $pubdate2 -}}
+            <div class="iass_pubyear"><span>Sortable Publication Date:</span> {{ .Params.iass_pubyear }}</div>
+            {{ end }}{{ end }}
+            <div class="citation_link"><span>Cite:</span> {{ .Params.handle }}</div>
+            <div class="language tags">
+                <span>Language:</span>
+                <ul>{{ range .Params.languages }}<li><a href="{{ "/languages/" | relLangURL }}{{ . | urlize }}">{{ . }}</a></li>{{ end }}</ul>
+            </div>
+            {{ if .Params.subjects }}
+            <div class="subjects tags"><span>Subject{{ if gt (len .Params.subjects) 1 }}s{{ end }}:</span>
+                <ul>{{ range .Params.subjects }}
+                    <li><a href="{{ "/subjects/" | relLangURL }}{{ . | urlize }}">{{ . }}</a></li>{{ end }}</ul>
+            </div>{{ end }}
+        </div>
+</article>

@@ -1,0 +1,127 @@
+.items {
+  margin: 0 (-$separator-width) 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.item {
+  /* maximum four columns */
+  flex: 1 1 25%;
+  min-width: 150px;
+  border: $separator-width solid $items-background-color;
+  border: $separator-width solid transparent;
+  border-style: inset;
+}
+
+.itemwide {
+  background-color: inherit;
+  font-size: 1.3rem;
+  line-height: 1.5;
+
+  p {
+    margin: 0;
+  }
+}
+
+.itemspecial {
+  .newsitem {
+    padding: 2px;
+    background-color: $newsItem-border-color;
+  }
+
+  .meta {
+    padding: $separator-width;
+    background-color: white;
+    border-radius: 6px;
+    .md_title {
+      display: inline-block;
+      padding-bottom: 0;
+      line-height: inherit;
+      font-size: inherit;
+      font-weight: normal;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .itemwide,
+  .itemspecial {
+    min-width: 100%;
+  }
+
+  .site-title.itemwide {
+    order: 2;
+    margin-right: 0;
+    border-top: 0;
+    line-height: 1;
+  }
+
+  .toplogo-nyu.item {
+    border-bottom: none;
+    align-self: flex-end;
+    flex-grow: 0;
+
+    a {
+      width: 175px;
+      height: auto;
+    }
+  }
+
+  .inner-header {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    margin: 0 (-$separator-width);
+
+    > div {
+      transition: 0;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .itemwide.intro {
+    font-size: 1.2rem;
+    line-height: 1.5;
+  }
+
+  .intro {
+    padding-right: 60px;
+  }
+}
+
+@media (min-width: 769px) {
+  .toplogo-nyu.item {
+    border-bottom: none;
+  }
+
+  .inner-header {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 0 (-$separator-width);
+  }
+
+  .itemwide,
+  .itemspecial {
+    min-width: 150px;
+  }
+
+  .itemwide {
+    flex: 1 1 75%;
+  }
+
+  .itemspecial {
+    flex: 1 1 25%;
+  }
+
+  .intro {
+    padding-right: 20px;
+  }
+
+  .site-title.itemwide {
+    order: initial;
+  }
+}

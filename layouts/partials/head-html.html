@@ -14,7 +14,5 @@
 {{- $style := resources.Get "style.scss" | resources.ToCSS $options }}
 <link rel="stylesheet" href="{{ $style.Permalink }}">
 <script src="{{ .Site.BaseURL }}/js/pattern-library-3.0.1.min.js"></script>
-{{- if .RSSLink -}}
-<link href="{{ .RSSLink }}" rel="feed" type="application/rss+xml" title="{{ .Site.Title }}">{{- end }}
 {{ partial "opengraph_meta.html" . -}}
-{{ .Hugo.Generator -}}
+{{ hugo.Generator -}}
