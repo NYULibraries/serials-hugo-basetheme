@@ -2,9 +2,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 {{ if eq .Section "books"}}
-<title>{{ .Title }}: {{ .Site.Params.shorttitle }}: NYU Press</title>
+<title>{{ .Title }}: {{ .Site.Params.shorttitle }}: NYU Libraries</title>
 {{ else }}
-<title>{{ .Title }}: NYU Press</title>
+<title>{{ .Title }}: NYU Libraries</title>
 {{ end }}
 {{ with .Params.description }}
 <meta name="description" content="{{ . }}">{{- end }}
