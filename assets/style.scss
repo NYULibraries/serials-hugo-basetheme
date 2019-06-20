@@ -16,6 +16,13 @@ $footer-height: 150px;
 $newsItem-border-color: #d8cfcd;
 $readmore-link-color: #ab2300;
 $focus-color: #ff7a00;
+$skipnav-background: #ffffff !default;
+$skipnav-border: $brand-primary !default;
+$callout-text-color: #ffffff !default;
+$font-family-general: Verdana, Arial, sans-serif !default;
+$font-family-headers: Verdana, Arial, sans-serif !default;
+$font-family-headers-bold: Verdana, Arial, sans-serif !default;
+$font-family-body: Verdana, Arial, sans-serif !default;
 /* ========================================================================== */
 /* Parent styles:  dlts-books-base */
 /* Pathing is defined in header.html, passed as a value to key "includePaths"
@@ -27,6 +34,7 @@ $focus-color: #ff7a00;
 @import "partials/focus-states";
 @import "partials/bubbling";
 @import "partials/viewerpage";
+@import "partials/accessibility";
 /* ========================================================================== */
 /* Begin site-specific styles */
 /* ========================================================================== */

@@ -26,7 +26,7 @@ rules:
   indentation:
     - 1
     -
-      size: 4
+      size: 2
   leading-zero: 1
   max-file-line-count: 0
   max-line-length: 0
