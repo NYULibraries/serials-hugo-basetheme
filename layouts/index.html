@@ -1,17 +1,25 @@
 {{ partial "header.html" . }}
 <main id="main-content">
   <div class="items">
+    {{ if .Site.Params.homepageabouttext -}}
     <div class="intro item itemwide">
-      <p>Intro Text. <a href="{{ .Site.BaseURL }}/about" class="readmore" aria-label="Read more about {{ .Title }}">READ&nbsp;MORE…</a></p>
+      <p>{{ .Site.Params.homepageabouttext }} <a href="{{ .Site.BaseURL }}/about" class="readmore" aria-label="Read more about {{ .Title }}">READ&nbsp;MORE…</a></p>
     </div>
+    {{- end -}}
     <aside class="item itemspecial">
       <div class="newsitem">
         <div class="meta">
            <div>
-            <span class="md_label">Title:</span> <h1 class="md_title">{{ .Title }}</h1></div>
-          <div>
-            <span class="md_label">Publisher:</span> <span>{{ .Site.Params.organizationName }}</span>
+            <span class="md_label">Title:</span> <h1 class="md_title">{{ .Title }}</h1>
           </div>
+          {{ if .Site.Params.publishername -}}
+          <div>
+            <span class="md_label">Publisher:</span> <span>{{ .Site.Params.publishername }}</span>
+          </div>{{- end -}}
+          {{ if .Site.Params.organizationname -}}
+          <div>
+            <span class="md_label">Organization:</span> <span>{{ .Site.Params.organizationname }}</span>
+          </div>{{- end -}}
           <div class="md_subjects">
             <span class="md_label">Subject:</span> {{ .Site.Params.subjectsstring }}
           </div>
