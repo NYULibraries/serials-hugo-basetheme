@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 {{ if eq .Section "books"}}
-<title>{{ .Title }}: {{ .Site.Params.shorttitle }}: NYU Libraries</title>
+<title>{{ .Title }}: NYU Libraries</title>
 {{ else }}
 <title>{{ .Title }}: NYU Libraries</title>
 {{ end }}
@@ -13,6 +13,5 @@
 {{- $options := (dict "targetPath" "/css/style.css" "outputStyle" .Site.Params.sassOutputFormat "enableSourceMap" .Site.Params.enableSourceMap "includePaths" (slice "themes/dlts-books/assets")) -}}
 {{- $style := resources.Get "style.scss" | resources.ToCSS $options }}
 <link rel="stylesheet" href="{{ $style.Permalink }}">
-<script src="{{ .Site.BaseURL }}/js/pattern-library-3.0.1.min.js"></script>
 {{ partial "opengraph_meta.html" . -}}
 {{ hugo.Generator -}}

@@ -1,3 +1,10 @@
-<div class="logo"><a href="https://nyupress.org" class="brand"><img src="/opensquare/images/NYUPLogo.png" alt="NYU Libraries"></a></div>
-<a class="site-title" href=" {{ .Site.BaseURL }} ">{{ .Site.Title }}: <span class="tagline">{{.Site.Params.tagline}}<span></a>
+<div class="site-logo">
+  <a class="site-title" href="{{ .Site.BaseURL }}" aria-label="{{ .Site.Title }}">
+    <img src="{{ .Site.BaseURL }}/images/{{ .Site.Params.sitelogofilename }}" alt="{{ .Title }} homepage">
+  </a>
+</div>
+<div class="nyulogo">
+    <a href="https://library.nyu.edu/" class="brand" target="_blank">
+        <img src="{{ .Site.BaseURL }}/images/nyulibraries-logo-black.svg" alt="NYU Libraries">
+    </a>
 </div>
