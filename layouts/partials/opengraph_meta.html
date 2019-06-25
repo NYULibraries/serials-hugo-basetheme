@@ -1,10 +1,14 @@
 
 {{ if .IsPage -}}
-<meta name="description" content="{{ .Description | default (replaceRE "\n" " " .Summary) }}">
+<meta name="description" content="{{ .Site.Params.description }}">
 {{ else -}}
 <meta name="description" content="{{ $.Param "description" }}">
 {{ end -}}
 <meta property="og:site_name" content="{{ .Site.Title }}">
 <meta property="og:title" content="{{ .Title }}">
+{{ if (eq .Type "books") -}}
+{{ with $.Param "thumbHref" }}<meta property="og:image" content="{{ . | absURL }}">{{- end -}}
+{{- else -}}
+{{ with $.Param "thumbnailforentiresite" }}<meta property="og:image" content="{{ . | absURL }}">{{ end }}
+{{ end }}
 <meta property="og:url" content="{{ .Permalink }}">
-{{ with $.Param "image" }}<meta name="og:image" content="{{ . | absURL }}">{{ end }}
