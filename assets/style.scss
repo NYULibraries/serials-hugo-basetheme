@@ -213,10 +213,18 @@ a.readmore {
 
 .item.site-title a {
   font-weight: 400;
+  display: block;
+  max-width: 400px;
 
   &:link,
   &:visited {
     color: $site-title-color;
+  }
+
+  img {
+    width: 100%;
+    display: block;
+    height: auto;
   }
 }
 
