@@ -80,8 +80,14 @@ a:hover {
   display: flex;
 }
 
-.page-title {
+.book-title {
   margin-bottom: .8rem;
+}
+
+.page-title {
+  margin: 2rem 0;
+  font-size: 2rem;
+  font-weight: 300;
 }
 
 ul {
@@ -245,3 +251,5 @@ a.readmore {
     text-indent: -1000em;
   }
 }
+
+@import "site-specific";
