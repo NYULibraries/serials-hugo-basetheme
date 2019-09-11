@@ -29,7 +29,7 @@
         </div>
       </div>
     </div>
-    {{ range (where .Pages "Type" "books").ByDate }}
+    {{ range (where .Site.RegularPages "Type" "books").ByDate }}
     {{ partial "card-titleonly.html" . }}
     {{ end }}
     <article class="item empty-article" aria-hidden="true">
