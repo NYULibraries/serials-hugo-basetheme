@@ -10,7 +10,7 @@
 <meta name="description" content="{{ . }}">{{- end }}
 {{- with .Site.Params.author }}
 <meta name="author" content="{{ . }}">{{ end }}
-{{- $options := (dict "targetPath" "/css/style.css" "outputStyle" .Site.Params.sassOutputFormat "enableSourceMap" .Site.Params.enableSourceMap "includePaths" (slice "themes/dlts-books/assets")) -}}
+{{- $options := (dict "targetPath" "/css/style.css" "outputStyle" .Site.Params.sassOutputFormat "enableSourceMap" .Site.Params.enableSourceMap "includePaths" (slice "themes/dlts-books-base/assets")) -}}
 {{- $style := resources.Get "style.scss" | resources.ToCSS $options }}
 <link rel="stylesheet" href="{{ $style.Permalink }}">
 {{ partial "opengraph_meta.html" . -}}
