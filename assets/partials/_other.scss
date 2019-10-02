@@ -1,6 +1,3 @@
-
-
-
 body {
   background-color: $body-background-color;
   font-family: "Open Sans", Verdana, Helvetica, Arial, sans-serif;
@@ -22,19 +19,7 @@ h3 {
   margin: 0;
 }
 
-a:visited {
-  color: #663399;
-}
 
-a {
-  color: #007090;
-  text-decoration: none;
-}
-
-a:hover {
-  color: #ff0000;
-  text-decoration: underline;
-}
 
 .contain-main {
   display: flex;
@@ -89,7 +74,7 @@ main {
 .contain-header {
   background-color: $page-header-background-color;
   margin-bottom: 2px;
-  @include dropshadow;
+  @include dropshadow($showshadow);
 }
 
 .page-header {
