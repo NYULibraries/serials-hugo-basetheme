@@ -19,7 +19,9 @@ h3 {
   margin: 0;
 }
 
-
+a:link, a:visited, a:hover {
+  text-decoration: none;
+}
 
 .contain-main {
   display: flex;
@@ -165,11 +167,11 @@ a.readmore {
 .item.site-title a {
   font-weight: 400;
   display: block;
-  max-width: 400px;
-
+  
   &:link,
   &:visited {
     color: $site-title-color;
+    text-decoration: none;
   }
 
   img {

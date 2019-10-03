@@ -3,7 +3,7 @@
   <div class="items">
     {{ if .Site.Params.homepageabouttext -}}
     <div class="intro item itemwide">
-      <p>{{ .Site.Params.homepageabouttext }} <a href="{{ .Site.BaseURL }}/about" class="readmore" aria-label="Read more about {{ .Title }}">READ&nbsp;MORE…</a></p>
+      <p>{{ .Site.Params.homepageabouttext | safeHTML }} <a href="{{ .Site.BaseURL }}/about" class="readmore" aria-label="Read more about {{ .Title }}">READ&nbsp;MORE…</a></p>
     </div>
     {{- end -}}
     <div class="item itemspecial">
@@ -24,7 +24,7 @@
             <span class="md_label">Subject:</span> {{ .Site.Params.subjectsstring }}
           </div>
           {{ if .Site.Params.bobcatrecord }}
-          <div  class="bobcat_record"><a class="readmore" href="{{ .Site.Params.bobcatrecord }}">Bobcat record</a></div>
+          <div  class="bobcat_record"><a class="readmore" href="{{ .Site.Params.bobcatrecord | safeHTML }}">Bobcat record</a></div>
             {{ end }}
         </div>
       </div>

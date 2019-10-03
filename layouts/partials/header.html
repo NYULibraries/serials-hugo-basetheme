@@ -2,16 +2,14 @@
 <html lang="{{ .Site.LanguageCode | default "en-us" }}">
 
 <head>
-  {{ partial "head-html.html" . -}}
+  {{ partial "head-html.html" . }}
 </head>
-
-<body
-  class="{{- if .IsHome -}}ishome {{ end -}}{{if .IsNode}}isnode {{end}}{{if .IsPage}}ispage{{end}} {{ with .Type }}{{ . }}{{ end }} {{ with .Kind }}{{ . }}{{ end }}">
+<body class="{{- if .IsHome -}}ishome {{ end -}}{{if .IsNode}}isnode {{end}}{{if .IsPage}}ispage{{end}} {{ with .Type }}{{ . }}{{ end }} {{ with .Kind }}{{ . }}{{ end }}">
   <div class="contain-header">
     <header class="page-header">
       <div id="skipnav"><a href="#main-content">Skip navigation</a></div>
       <div class="inner-header items">
-        {{ partial "header-logo.html" . }}
+        {{- partial "header-logo.html" . }}
       </div>
       {{- if .Site.Menus.main -}}
       <div class="navhold">
