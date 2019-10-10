@@ -32,7 +32,7 @@
 
   .meta {
     padding: $separator-width;
-    background-color: #ffffff;
+    background-color:$item-special-bg-color;
     border-radius: 6px;
 
     .md_title {
