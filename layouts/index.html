@@ -20,6 +20,10 @@
           <div>
             <span class="md_label">Organization:</span> <span>{{ .Site.Params.organizationname }}</span>
           </div>{{- end -}}
+          {{ if .Site.Params.placeofpublication -}}
+          <div>
+            <span class="md_label">Place of Publication:</span> <span>{{ .Site.Params.placeofpublication }}</span>
+          </div>{{- end -}}
           <div class="md_subjects">
             <span class="md_label">Subject:</span> {{ .Site.Params.subjectsstring }}
           </div>
