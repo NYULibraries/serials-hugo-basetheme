@@ -83,15 +83,6 @@ main {
   padding: 0 $side-padding;
 }
 
-.site-title {
-  a {
-    font-weight: bold;
-    font-size: 2.8rem;
-    line-height: 1.15;
-    color: $site-title-color;
-    text-transform: uppercase;
-  }
-}
 
 header li,
 header nav {
@@ -156,6 +147,18 @@ a.readmore {
   }
 }
 
+
+.site-title {
+  align-self: center;
+  border: 0;
+  a {
+    font-weight: bold;
+    font-size: 2.8rem;
+    line-height: 1.15;
+    color: $site-title-color;
+    text-transform: uppercase;
+  }
+}
 
 .item.site-title a {
   font-weight: 400;
