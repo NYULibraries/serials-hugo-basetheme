@@ -9,10 +9,10 @@ fi
 if [$1=="dev"]
     then
     path="dev"
-else if [$1=="stage"]
+elif [$1=="stage"]
     then
     path="stage"
-else if [$1=="production"]
+elif [$1=="production"]
     then
     path=""
 fi
@@ -48,4 +48,3 @@ echo "---------------------------------\n\n";
 echo "Publishing The Masses";
 hugo -e $e -s ~/projects/themasses-nyudlts/;
 rsync  -avzr  --exclude '.*'   /Users/henze/projects/themasses-nyudlts/docs/ henze@$1web1:/www/sites/themasses/ ;
-
