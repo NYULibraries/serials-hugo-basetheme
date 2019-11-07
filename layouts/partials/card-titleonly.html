@@ -6,7 +6,7 @@
                 <img src="{{ $thumb.Permalink }}" class="imgload" alt="{{ .Title }}" aria-hidden="true">
             </div>
             <div class="meta">
-                <h1 class="md_title">{{ .Title }}</h1>
+                <h1 class="md_title" aria-label="{{ .Title }}">{{ .Params.ss_publication_date_text }}</h1>
             </div>
         </a>
     </div>
