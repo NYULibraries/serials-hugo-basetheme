@@ -28,10 +28,17 @@ body.ispage.books {
       display: none;
     }
   }
-  
+
   .inner-header {
     min-height: auto;
   }
+
+  @media (max-width: 768px) {
+    .inner-header {
+      margin: 0 -10px 0;
+    }
+  }
+
   
   &.io-loading .viewer {
     opacity: 0;
@@ -49,7 +56,6 @@ body.ispage.books {
   }
 
   .page-header {
-    padding: 5px 10px 0;
     height: 55px;
     max-width: none;
   }
@@ -68,9 +74,5 @@ body.ispage.books {
     line-height: 1;
   }
 
-  @media (max-width: 768px) {
-    .site-title.itemwide {
-      margin-top: -10px;
-    }
-  }
+
 }

@@ -150,7 +150,6 @@ a.readmore {
 
 .site-title {
   align-self: center;
-  border: 0;
   a {
     font-weight: bold;
     font-size: 2.8rem;
@@ -190,7 +189,10 @@ a.readmore {
     max-width: 100%;
     width: 100%;
     display: block;
-    height: 30px;
     text-indent: -1000em;
+    height: 20px;
+    @media (min-width: 601px) {
+      height: 30px;
+    }
   }
 }
