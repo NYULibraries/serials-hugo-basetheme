@@ -161,8 +161,8 @@ a.readmore {
 
 .item.site-title a {
   font-weight: 400;
-  display: block;
-  
+  display: inline-block;
+
   &:link,
   &:visited {
     color: $site-title-color;
