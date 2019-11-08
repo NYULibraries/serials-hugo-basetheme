@@ -11,7 +11,11 @@
         <div class="meta">
            <div>
             <span class="md_label">Title:</span> <h1 class="md_title">{{ .Title }}</h1>
-          </div>
+          </div> 
+          {{ if .Site.Params.authorname -}}
+          <div>
+            <span class="md_label">Author:</span> <span>{{ .Site.Params.authorname }}</span>
+          </div>{{- end -}}
           {{ if .Site.Params.publishername -}}
           <div>
             <span class="md_label">Publisher:</span> <span>{{ .Site.Params.publishername }}</span>
@@ -28,10 +32,10 @@
             <span class="md_label">Subject:</span> {{ .Site.Params.subjectsstring }}
           </div>   
           {{ if .Site.Params.homepagespecialfile }}
-          <div  class="index_link"><a class="readmore" href="{{- .Site.Params.homepagespecialfile | safeHTML -}}"> <span class="icon ext-link-icon" aria-hidden="true" role="presentation">{{- partial "svgs/pdf.svg" (dict "fill" "#c50f3c" "width" 14 "height" 17 ) -}}</span><span>Collection index (PDF)</span> </a></div>
+          <div  class="index_link meta-link"><a class="readmore" href="{{- .Site.Params.homepagespecialfile | safeHTML -}}"> <span class="icon ext-link-icon" aria-hidden="true" role="presentation">{{- partial "svgs/pdf.svg" (dict "fill" "#c50f3c" "width" 14 "height" 17 ) -}}</span><span>Collection index (PDF)</span> </a></div>
           {{ end }}
           {{ if .Site.Params.bobcatrecord }}
-          <div  class="bobcat_record"><a class="readmore" href="{{ .Site.Params.bobcatrecord | safeHTML }}"><span class="icon" aria-hidden="true" role="presentation">{{- partial "svgs/external-links.svg" (dict "fill" "#c50f3c" "width" 14 "height" 12 ) -}}</span><span>Bobcat record</span> </a></div>
+          <div  class="bobcat_record meta-link"><a class="readmore" href="{{ .Site.Params.bobcatrecord | safeHTML }}"><span class="icon" aria-hidden="true" role="presentation">{{- partial "svgs/external-links.svg" (dict "fill" "#c50f3c" "width" 14 "height" 12 ) -}}</span><span>Bobcat record</span> </a></div>
           {{ end }}
         </div>
       </div>

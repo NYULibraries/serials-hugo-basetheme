@@ -18,8 +18,8 @@ a:active {
     }
 
     li:not(:first-child)::before {
-      content: '\2022';
-      padding: .4em;
+      content: "\2022";
+      padding: 0.4em;
     }
   }
 
@@ -30,13 +30,13 @@ a:active {
 }
 
 .item .newsitem {
-
-  svg,
-  span {
-    display: inline-block;
-    vertical-align: bottom;
+  .meta-link {
+    svg,
+    span {
+      display: inline-block;
+      vertical-align: bottom;
+    }
   }
-
   a:link {
     margin-top: 10px;
     font-weight: bold;
@@ -47,5 +47,5 @@ a:active {
   }
 }
 span.icon {
-  margin-right:5px;
+  margin-right: 5px;
 }
