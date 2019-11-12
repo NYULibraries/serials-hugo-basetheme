@@ -1,12 +1,13 @@
 <article class="item">
     <div class="card">
-        <div class="thumbs">
-            <a href="{{ .Permalink }}" title="{{ .Title }}" aria-hidden="true" tabindex="-1">
-            	{{ $thumb := resources.Get (  printf "images/%s.jpg" .Params.identifier )}}
-                <img src="{{ $thumb.Permalink }}" class="imgload"  alt="{{ .Title }}"></a>
-        </div>
-        <div class="meta">
-            <h1 class="md_title"><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
-        </div>
+        <a href="{{ .Permalink }}">
+            <div class="thumbs" role="presentation">
+                {{- $thumb := resources.Get (  printf "images/%s.jpg" .Params.identifier ) -}}
+                <img src="{{ $thumb.Permalink }}" class="imgload" alt="{{ .Title }}" aria-hidden="true">
+            </div>
+            <div class="meta">
+                <h1 class="md_title" aria-label="{{ .Title }}">{{ .Params.ss_publication_date_text }}</h1>
+            </div>
+        </a>
     </div>
 </article>

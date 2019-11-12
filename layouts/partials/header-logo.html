@@ -1,11 +1,10 @@
-{{ if .Site.Params.sitelogofilename }}
-  <div class="site-title item itemwide">
-    <a class="" href="{{ .Site.BaseURL }}" aria-label="{{ .Site.Title }}">
-      <img src="{{ .Site.BaseURL }}/images/{{ .Site.Params.sitelogofilename  }}" alt="{{ .Title }} homepage">
-    </a>
-    </div>
-{{ else }}
-    <div class="site-title item itemwide"><a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></div>
-{{ end }}
-
-<div class="toplogo-nyu item "><a href="https://library.nyu.edu/" class="nyullogo" target="_blank">NYU Libraries</a></div>
+{{- if .Site.Params.sitelogofilename -}}
+      <div class="site-title item itemwide">
+        <a class="" href="{{ .Site.BaseURL }}" aria-label="{{ .Site.Title }}">
+          <img src="{{ .Site.BaseURL }}/images/{{ .Site.Params.sitelogofilename  }}" alt="{{ .Title }} homepage">
+        </a>
+      </div>
+{{- else }}
+      <div class="site-title item itemwide"><a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></div>
+{{- end }}
+      <div class="toplogo-nyu item "><a href="https://library.nyu.edu/" class="nyullogo" target="_blank">NYU Libraries</a></div>

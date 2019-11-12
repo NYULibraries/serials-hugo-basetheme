@@ -32,9 +32,10 @@
 
   .meta {
     padding: $separator-width;
-    background-color: #ffffff;
+    background-color: $item-special-bg-color;
     border-radius: 6px;
-
+    font-size: 1rem;
+    line-height: 1.4;
     .md_title {
       display: inline-block;
       padding-bottom: 0;
@@ -45,37 +46,36 @@
   }
 }
 
+
 @media (max-width: 768px) {
+
   .itemspecial,
   .itemwide {
     min-width: 100%;
   }
 
   .site-title.itemwide {
-    order: 2;
     margin-right: 0;
-    border-top: 0;
     line-height: 1;
+    min-width: 20%;
+    flex: 1 1 auto;
+
   }
 
   .toplogo-nyu.item {
-    border-bottom: 0;
+
     align-self: flex-end;
     flex-grow: 0;
-
-    a {
-      width: 175px;
-      height: auto;
-    }
   }
 
   .inner-header {
     display: flex;
     justify-content: flex-end;
-    flex-wrap: wrap;
-    margin: 0 (-$separator-width);
-
-    > div {
+    align-content: flex-end;
+    flex-wrap: wrap-reverse;
+    height: auto;
+    margin: 0;
+    >div {
       transition: 0;
     }
   }
@@ -91,6 +91,9 @@
     padding-right: 60px;
   }
 }
+.toplogo-nyu.item {
+  border-bottom: 0;
+}
 
 @media (min-width: 769px) {
   .toplogo-nyu.item {
@@ -101,7 +104,8 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    margin: 0 (-$separator-width);
+    margin: 0;
+    min-height: 100px;
   }
 
   .itemspecial,
@@ -120,13 +124,12 @@
   .intro {
     padding-right: 20px;
   }
-
-  .site-title.itemwide {
-    order: initial;
-  }
 }
-@media (max-width: 600px) {
-  .toplogo-nyu.item {
-    border-bottom: 10px solid transparent;
-  }
+
+.item .card a:hover {
+  box-shadow: 0 0 0 5px $focus-color;
+  outline: none;
+}
+.site-title {
+  border-left: 0;
 }
