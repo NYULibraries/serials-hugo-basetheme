@@ -3,6 +3,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 {{ if eq .Section "books"}}
 <title>{{ .Title }}: NYU Libraries</title>
+{{ else if eq .Section "pages"}}
+<title>{{ .Title }}: {{ .Site.Title }}: NYU Libraries</title>
 {{ else }}
 <title>{{ .Title }}: NYU Libraries</title>
 {{ end }}
