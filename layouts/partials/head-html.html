@@ -14,7 +14,8 @@
 {{- with .Site.Params.author }}
 <meta name="author" content="{{ . }}">{{ end }}
 {{- $options := (dict "targetPath" "/css/style.css" "outputStyle" .Site.Params.sassOutputFormat "enableSourceMap" .Site.Params.enableSourceMap "includePaths" (slice "themes/dlts-books-base/assets")) -}}
-{{- $style := resources.Get "style.scss" | resources.ToCSS $options -}}
+{{- $postcssoptions := (dict "use" "autoprefixer" ) -}}
+{{- $style := resources.Get "style.scss" | resources.ToCSS $options | resources.PostCSS $postcssoptions -}}
 {{- $fingerprintedstyle := $style | resources.Fingerprint -}}
 <link rel="stylesheet" href="{{ $fingerprintedstyle.Permalink }}" integrity="{{ $fingerprintedstyle.Data.Integrity }}">
 {{ partial "opengraph_meta.html" . -}}
