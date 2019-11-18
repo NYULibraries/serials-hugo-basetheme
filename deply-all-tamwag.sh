@@ -6,13 +6,13 @@ else
 	exit
 fi
 
-if [$1=="dev"]
+if [ $1=="dev" ]
     then
     path="dev"
-elif [$1=="stage"]
+elif [ $1=="stage" ]
     then
     path="stage"
-elif [$1=="production"]
+elif [ $1=="production" ]
     then
     path=""
 fi
@@ -25,7 +25,6 @@ hugo -e $e -s ~/projects/southernworker-nyudlts/;
 rsync  -avzr  --exclude '.*'   /Users/henze/projects/southernworker-nyudlts/docs/ henze@${path}web1:/www/sites/southernworker/ ;
 
 
-exit;
 echo "---------------------------------";
 echo "---------------------------------\n\n";
 echo "Publishing FAWF";

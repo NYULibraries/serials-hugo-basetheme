@@ -67,7 +67,8 @@
   .thumbs {
     width: 100%;
     flex: 0 0 auto;
-
+    -webkit-box-shadow: rgba(102, 102, 102, 0.8) 1px 1px 1px;
+    box-shadow: rgba(102, 102, 102, 0.8) 1px 1px 1px;
     a {
       display: block;
       margin-right: 0;
