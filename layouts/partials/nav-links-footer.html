@@ -1,7 +1,7 @@
 <nav class="nav-links">
   <ul>
     {{- range .Site.Menus.footer -}}
-    <li><a href="{{ .URL | relURL }}" {{- if eq .Identifier "external" -}} target="_blank" class="external"{{- end -}}>{{ .Name -}}</a></li>
+    <li><a href="{{ .URL | relURL }}" {{- if hasPrefix .Identifier "external" -}} target="_blank" class="external"{{- end -}}>{{ .Name -}} {{- if hasPrefix .Identifier "external" -}}&nbsp; {{- partial "svgs/external-links.svg" (dict "fill" "#010101" "width" 15 "height" 15 ) -}}{{- end -}}</a></li>
     {{- end -}}
   </ul>
 </nav>
