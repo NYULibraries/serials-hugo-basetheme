@@ -6,18 +6,25 @@ else
 	exit
 fi
 
-if [$1=="dev"]
+if [ $1=="dev" ]
     then
     path="dev"
-elif [$1=="stage"]
+elif [ $1=="stage" ]
     then
     path="stage"
-elif [$1=="production"]
+elif [ $1=="production" ]
     then
     path=""
 fi
 
 echo "\n The Environment is $1"
+echo "---------------------------------";
+echo "---------------------------------\n\n";
+echo "Publishing Southern Worker";
+hugo -e $e -s ~/projects/southernworker-nyudlts/;
+rsync  -avzr  --exclude '.*'   /Users/henze/projects/southernworker-nyudlts/docs/ henze@${path}web1:/www/sites/southernworker/ ;
+
+
 echo "---------------------------------";
 echo "---------------------------------\n\n";
 echo "Publishing FAWF";
@@ -38,11 +45,6 @@ echo "---------------------------------\n\n";
 echo "Publishing Freedom";
 hugo -e $e -s ~/projects/freedom-nyudlts/;
 rsync  -avzr  --exclude '.*'   /Users/henze/projects/freedom-nyudlts/docs/ henze@$1web1:/www/sites/freedom/ ;
-echo "---------------------------------";
-echo "---------------------------------\n\n";
-echo "Publishing Southern Worker";
-hugo -e $e -s ~/projects/southernworker-nyudlts/;
-rsync  -avzr  --exclude '.*'   /Users/henze/projects/southernworker-nyudlts/docs/ henze@$1web1:/www/sites/southernworker/ ;
 echo "---------------------------------";
 echo "---------------------------------\n\n";
 echo "Publishing The Masses";
