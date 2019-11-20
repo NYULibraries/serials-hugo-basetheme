@@ -33,7 +33,7 @@ $footer-height: 120px !default;
   .contain-footer {
     position: absolute;
     bottom: 0;
-    height: $footer-height;
+    min-height: $footer-height;
     width: 100%;
   }
 
