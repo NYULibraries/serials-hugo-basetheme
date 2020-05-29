@@ -16,7 +16,7 @@
 {{- $options := (dict "targetPath" "/css/style.css" "outputStyle" .Site.Params.sassOutputFormat "enableSourceMap" .Site.Params.enableSourceMap "includePaths" (slice "themes/dlts-books-base/assets")) -}}
 {{- $style := resources.Get "style.scss" | resources.ToCSS $options -}}
 {{- $fingerprintedstyle := $style | resources.Fingerprint -}}
-<link rel="stylesheet" href="{{ $fingerprintedstyle.Permalink }}" integrity="{{ $fingerprintedstyle.Data.Integrity }}">
+<link rel="stylesheet" href="{{ $fingerprintedstyle.RelPermalink }}" integrity="{{ $fingerprintedstyle.Data.Integrity }}">
 {{ partial "opengraph_meta.html" . -}}
 
 {{ partial "head-fonts.html" . }}
