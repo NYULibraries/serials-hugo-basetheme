@@ -1,6 +1,6 @@
 <article class="item">
     <div class="card">
-        <a href="{{ .Permalink }}">
+        <a href="{{ .RelPermalink }}">
             <div class="thumbs" role="presentation">
                 {{- $thumb := resources.Get (  printf "images/%s.jpg" .Params.identifier ) -}}
                 <img src="{{ $thumb.RelPermalink }}" class="imgload" alt="{{ .Title }}" aria-hidden="true">
