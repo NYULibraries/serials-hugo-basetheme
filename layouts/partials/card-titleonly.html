@@ -1,9 +1,9 @@
 <article class="item">
     <div class="card">
-        <a href="{{ .Permalink }}">
+        <a href="{{ .RelPermalink }}">
             <div class="thumbs" role="presentation">
-                {{- $thumb := resources.Get (  printf "images/%s.jpg" .Params.ss_book_identifier ) -}}
-                <img src="{{ $thumb.Permalink }}" class="imgload" alt="{{ .Title }}" aria-hidden="true">
+                {{- $thumb := resources.Get (  printf "images/%s.jpg" .Params.identifier ) -}}
+                <img src="{{ $thumb.RelPermalink }}" class="imgload" alt="{{ .Title }}" aria-hidden="true">
             </div>
             <div class="meta">
                 <h1 class="md_title" aria-label="{{ .Title }}">{{ .Params.ss_publication_date_text }}</h1>
