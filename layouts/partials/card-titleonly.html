@@ -2,7 +2,7 @@
     <div class="card">
         <a href="{{ .RelPermalink }}">
             <div class="thumbs" role="presentation">
-                {{- $thumb := resources.Get (  printf "images/%s.jpg" .Params.book_identifier ) -}}
+                {{- $thumb := resources.Get (  printf "images/%s.jpg" .Params.ss_book_identifier ) -}}
                 <img src="{{ $thumb.RelPermalink }}" class="imgload" alt="{{ .Title }}" aria-hidden="true">
             </div>
             <div class="meta">
