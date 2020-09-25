@@ -1,3 +1,3 @@
-module dlts-books-base
+module github.com/nyudlts/dlts-books-base
 
 go 1.15
