@@ -1,3 +1,3 @@
-module github.com/nyudlts/dlts-books-base
+module github.com/nyudlts/serials-hugo-basetheme
 
 go 1.15
