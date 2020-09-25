@@ -1,3 +1,3 @@
-module books-base-theme
+module dlts-books-base
 
 go 1.15
