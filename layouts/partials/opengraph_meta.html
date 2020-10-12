@@ -7,7 +7,7 @@
 <meta property="og:site_name" content="{{ .Site.Title }}">
 <meta property="og:title" content="{{ .Title }}">
 {{ if (eq .Type "books") -}}
-{{ with $.Param "thumbHref" }}<meta property="og:image" content="{{ . | absURL }}">{{- end -}}
+{{ with $.Param "ss_representative_image" }}<meta property="og:image" content="{{ . | absURL }}">{{- end -}}
 {{- else -}}
 {{ with $.Param "thumbnailforentiresite" }}<meta property="og:image" content="{{ . | absURL }}">{{ end }}
 {{ end }}
