@@ -1,0 +1,12 @@
+{{ printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\" ?>" | safeHTML }}
+<files>
+  {{- range (where .Site.RegularPages "Type" "books").ByDate -}}
+  <file>
+    <title>{{ .Title }}</title>
+    <uri>{{ .Permalink }}</uri>
+    <pdfuri>http://mc.dlib.nyu.edu/files/books/{{ .Params.ss_book_identifier }}/{{ .Params.ss_book_identifier }}_hi.pdf</pdfuri>
+    <id>{{ .Params.ss_book_identifier }}</id>
+    <date>{{ .Date.Format "2006-01-02" }}</date>
+  </file>
+  {{ end }}
+</files>
