@@ -2,8 +2,6 @@
     <div class="card">{{- $basepath := "http://mc.dlib.nyu.edu/files/books/" }}
         {{ $pageurl := "_hi.pdf" | printf "%s%s" .Params.ss_book_identifier | printf "%s%s" "/" |  printf "%s%s" .Params.ss_book_identifier |  printf "%s%s" $basepath  -}}
         {{ "<!-- " | safeHTML }} <a href="{{ $pageurl }}">{{ .Title }} PDF</a>   {{ "-->" | safeHTML }}
-        {{ $pageurl := "_lo.pdf" | printf "%s%s" .Params.ss_book_identifier | printf "%s%s" "/" |  printf "%s%s" .Params.ss_book_identifier |  printf "%s%s" $basepath  -}}
-        {{ "<!-- " | safeHTML }} <a href="{{ $pageurl }}">{{ .Title }} PDF</a>   {{ "-->" | safeHTML }}
         <a href="{{ .RelPermalink }}">
             <div class="thumbs" role="presentation">
                 {{- $thumb := resources.Get (  printf "images/%s.jpg" .Params.ss_book_identifier ) -}}
