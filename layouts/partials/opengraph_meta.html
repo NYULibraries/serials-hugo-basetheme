@@ -1,13 +1,15 @@
-
-{{ if .IsPage -}}
-<meta name="description" content="{{ .Site.Params.description }}">
-{{ else -}}
+{{ if (and (.IsPage) (eq .Type "books")) -}}
 <meta name="description" content="{{ $.Param "description" }}">
+{{ else -}}
+<meta name="description" content="{{ .Site.Params.description }}">
 {{ end -}}
 <meta property="og:site_name" content="{{ .Site.Title }}">
 <meta property="og:title" content="{{ .Title }}">
-{{ if (eq .Type "books") -}}
-{{ with $.Param "ss_representative_image" }}<meta property="og:image" content="{{ . | absURL }}">{{- end -}}
+{{ if (and (.IsPage) (eq .Type "books")) -}}
+{{- $thumb := resources.Get (  printf "images/%s.jpg" .Params.ss_book_identifier ) -}}
+<meta property="og:image" content="{{ $thumb.Permalink }}">
+<meta property="og:type" content="books.book">
+<meta property="books:release_date" content="{{ .Date.Format "2006-01-02" }}">
 {{- else -}}
 {{ with $.Param "thumbnailforentiresite" }}<meta property="og:image" content="{{ . | absURL }}">{{ end }}
 {{ end }}
