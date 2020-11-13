@@ -1,4 +1,6 @@
+{{- if eq .Section "books" -}}
 {{- range (where .Site.RegularPages "Type" "books").ByDate -}}
 {{- $thumb := resources.Get (  printf "images/%s.jpg" .Params.ss_book_identifier ) -}}
-{{ .Site.Params.pdfserverurl }}{{ .Params.ss_book_identifier }}/{{ .Params.ss_book_identifier }}_hi.pdf title:"{{ .Title }}" d:"{{ .Date.Format "2006-01-02" }}" thumbnail:"{{ $thumb.Permalink }}"
+{{ .Site.Params.pdfserverurl }}{{ .Params.ss_book_identifier }}/{{ .Params.ss_book_identifier }}_hi.pdf title:"{{ .Title }}" d:"{{ .Date.Format "2006-01-02" }}" thumbnail:"{{ $thumb.Permalink }}" viewerpage:"{{ .Permalink }}"
 {{ end -}}
+{{- end -}}
