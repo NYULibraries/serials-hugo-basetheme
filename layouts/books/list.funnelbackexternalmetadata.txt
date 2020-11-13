@@ -1,3 +1,0 @@
-{{- range (where .Site.RegularPages "Type" "books").ByDate -}}
-{{ .Site.Params.pdfserverurl }}{{ .Params.ss_book_identifier }}/{{ .Params.ss_book_identifier }}_hi.pdf title:"{{ .Title }}" d:"{{ .Date.Format "2006-01-02" }}"
-{{ end -}}
