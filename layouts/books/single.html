@@ -3,7 +3,8 @@
 <main id="main-content">
   <h1 class="page-title">{{ .Title }}</h1>
   {{- $bvu := .Site.Params.baseViewerURL -}}
-  {{- $cvu := .Params.viewerURL }}
+  {{- $bvu := replaceRE "^http://" "https://" .Site.Params.baseViewerURL -}}
+  {{- $cvu := replaceRE "^http://" "https://" .Params.viewerURL }}
 <iframe class="viewer widget book" data-sequence="1" data-baseviewerurl="{{- $bvu -}}" data-identifier="{{- .Params.ss_book_identifier -}}" title="View Book: {{ .Title }}" src = "{{- $cvu -}}/1?embed=true" allowfullscreen mozallowfullscreen webkitallowfullscreen></iframe>
 </main>
 {{- partial "loading-animation-bubbling.html" . }}
