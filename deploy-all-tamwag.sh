@@ -28,7 +28,7 @@ echo "---------------------------------";
 echo "---------------------------------\n\n";
 echo "Publishing FAWF";
 hugo --cleanDestinationDir -e $e -s ~/projects/tamwag/fawf-nyudlts/;
-rsync  -avzr  --exclude '.*'   /Users/`whoami`/projects/tamwag/fawf-nyudlts/docs/ `whoami`${path}web1:/www/sites/fawf/ ;
+rsync  -avzr  --exclude '.*'   /Users/`whoami`/projects/tamwag/fawf-nyudlts/docs/ `whoami`@${path}web1:/www/sites/fawf/ ;
 echo "---------------------------------";
 echo "---------------------------------\n\n";
 echo "Publishing Liberator";
