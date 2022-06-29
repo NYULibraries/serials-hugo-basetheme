@@ -37,6 +37,7 @@ window.addEventListener("hashchange", hashHandler, false);
 window.addEventListener(
   "message",
   function (event) {
+    console.log("data " + event.data)
     var data = JSON.parse(event.data);
     if (data.fire) {
       switch (data.fire) {
