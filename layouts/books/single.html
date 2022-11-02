@@ -4,7 +4,7 @@
   <h1 class="page-title">{{ .Title }}</h1>
   {{- $bvu := .Site.Params.baseViewerURL -}}
   {{- $cvu := path.Join "/viewer" .Params.path_alias }}
-  {{- $dvu :=  $cvu | printf "%s%s" $bvu -}}
+  {{- $dvu :=  $cvu | printf "%s%s" $bvu }}
 <iframe class="viewer widget book" data-sequence="1" data-baseviewerurl="{{- $bvu -}}" data-identifier="{{- .Params.ss_book_identifier -}}" title="View Book: {{ .Title }}" src = "{{- $dvu -}}/1" allowfullscreen mozallowfullscreen webkitallowfullscreen></iframe>
 </main>
 {{- partial "loading-animation-bubbling.html" . }}
