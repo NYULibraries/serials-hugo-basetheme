@@ -8,14 +8,13 @@
 {{ else }}
 <title>{{ .Title }}: NYU Libraries</title>
 {{ end }}
-
 {{ with .Params.description }}
 <meta name="description" content="{{ . }}">{{- end }}
 {{- with .Site.Params.author }}
 <meta name="author" content="{{ . }}">{{ end }}
 {{- $options := (dict "targetPath" "/css/style.css" "outputStyle" .Site.Params.sassOutputFormat "enableSourceMap" .Site.Params.enableSourceMap "includePaths" (slice "themes/serials-hugo-basetheme/assets")) -}}
 {{- $style := resources.Get "style.scss" | resources.ToCSS $options -}}
-{{ if hugo.IsProduction -}}{{- $style := $style | resources.Fingerprint -}}{{ end }}
+{{ if hugo.IsProduction -}}{{- $style = $style | resources.Fingerprint -}}{{ end }}
 <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
 {{ partial "opengraph_meta.html" . -}}
 
