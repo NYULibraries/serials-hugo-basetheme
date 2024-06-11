@@ -42,7 +42,7 @@
       </div>
     </div>
     <div class="items all-thumbs">
-    {{ range ((where .Site.RegularPages "Type" "books").ByDate).ByParam "ss_book_identifier" }}
+    {{ range (where .Site.RegularPages "Type" "books").ByParam "ss_book_identifier" }}
       {{ partial "card-titleonly.html" . }}
     {{ end }}
     <article class="item empty-article" aria-hidden="true">
