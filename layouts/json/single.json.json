@@ -1,0 +1,3 @@
+Single json json Json
+{{  . }}
+{{ printf "%#v" . }}
