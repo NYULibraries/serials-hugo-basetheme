@@ -1,1 +1,1 @@
-{{- /*  Do not render */ -}}
+{{- /*  This template will not render at all. It's here to hold the place and prevent errors. Do not remove. */ -}}

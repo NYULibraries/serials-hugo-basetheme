@@ -1,3 +1,8 @@
-Single json json Json
-{{  . }}
-{{ printf "%#v" . }}
+{{- /*  This template will render as JSON files in docs/json directory. It should be a faithful copy of what's in Solr. It can be used for version control for content only.  */ -}}
+{
+{{- $object :=  .Params -}}
+{{- range $key, $value := $object }}
+  "{{ $key }}":{{ jsonify $value }},
+{{- end }}
+}
+
