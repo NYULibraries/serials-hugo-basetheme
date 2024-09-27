@@ -2,9 +2,7 @@
 <main id="main-content">
   <div class="items">
     {{ if .Site.Params.homepageabouttext -}}
-    <div class="intro item itemwide">
-      <p>{{ .Site.Params.homepageabouttext | safeHTML }} <a href="{{ .Site.BaseURL  | relURL }}/about" class="readmore" aria-label="Read more about {{ .Title }}">READ&nbsp;MORE…</a></p>
-    </div>
+      {{ partial "introtext.html" . }}
     {{- end -}}
     <div class="item itemspecial">
       <div class="newsitem">
