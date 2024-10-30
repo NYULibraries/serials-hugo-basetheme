@@ -3,7 +3,11 @@
     "@type": "PublicationIssue",
     "name": "{{ .Title }}",
     "url" : "{{ .Permalink }}",
-    "image" : "{{ .Params.ss_representative_image }}",
+    {{-   $thumbpath :=  printf "images/%s.jpg" .Params.ss_book_identifier   }}
+    {{-  $thumb := resources.GetMatch ( $thumbpath) }}
+    {{- with  $thumb }}
+    "image" : "{{ .Permalink }}",
+    {{- end }}
     "datePublished": "{{ .Date.Format "2006-01-02" }}",
     "inLanguage": [{
     	"@type": "Language",

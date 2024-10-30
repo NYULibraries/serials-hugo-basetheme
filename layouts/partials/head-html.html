@@ -8,15 +8,24 @@
 {{ else }}
 <title>{{ .Title }}: NYU Libraries</title>
 {{ end }}
-
 {{ with .Params.description }}
 <meta name="description" content="{{ . }}">{{- end }}
 {{- with .Site.Params.author }}
 <meta name="author" content="{{ . }}">{{ end }}
-{{- $options := (dict "targetPath" "/css/style.css" "outputStyle" .Site.Params.sassOutputFormat "enableSourceMap" .Site.Params.enableSourceMap "includePaths" (slice "themes/serials-hugo-basetheme/assets")) -}}
-{{- $style := resources.Get "style.scss" | resources.ToCSS $options -}}
-{{- $fingerprintedstyle := $style | resources.Fingerprint -}}
-<link rel="stylesheet" href="{{ $fingerprintedstyle.RelPermalink }}" integrity="{{ $fingerprintedstyle.Data.Integrity }}">
+
+{{ with resources.Get "style.scss" }}
+  {{- $opts := dict "transpiler" "libsass" "targetPath" "css/style.css" "enableSourceMap" (not hugo.IsProduction)}}
+  {{- with . | toCSS $opts }}
+    {{- if (not hugo.IsProduction) }}
+      <link rel="stylesheet" href="{{ .RelPermalink }}">
+    {{- else }}
+      {{- with . | minify | fingerprint -}}
+        <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+      {{ end }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+
 {{ partial "opengraph_meta.html" . -}}
 
 {{ partial "head-fonts.html" . }}
