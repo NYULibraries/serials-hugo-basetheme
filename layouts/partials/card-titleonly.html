@@ -2,22 +2,21 @@
   <div class="card">
     <a href="{{ .RelPermalink }}">
       <div class="thumbs" role="presentation">
-        {{ with try (.Resources.GetMatch (add .Params.identifier ".jpg") ) }}
-          {{ with .Err }}
+        {{- with try (.Resources.GetMatch (add .Params.identifier ".jpg") ) }}
+          {{- with .Err }}
             {{ errorf "nope %s" . }}
-          {{ else with .Value}}
+          {{- else with .Value -}}
             <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" class="imgload" loading="lazy" alt="">
-          {{ end }}
-        {{ else }}
+          {{- end }}
+        {{- else }}
           {{ errorf "Basetheme Template card-titleonly.html: Unable to get resource" }}
-        {{ end }}
+        {{- end }}
       </div>
       <div class="meta">
         <h1 class="md_title" aria-label="{{ .Title }}">
           {{- with .Params.ss_publication_date_text }}
             {{ . }}
-          {{ else }}
-            {{ .Params.dates.publication_date_text }}{{ end }}</h1>
+          {{ else }}{{ .Params.dates.publication_date_text }}{{ end }}</h1>
       </div>
     </a>
   </div>
