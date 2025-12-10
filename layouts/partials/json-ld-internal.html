@@ -3,7 +3,7 @@
     "@type": "PublicationIssue",
     "name": "{{ .Title }}",
     "url" : "{{ .Permalink }}",
-    {{- with try (.Resources.GetMatch (add .Params.identifier ".jpg") ) }}
+    {{ with try (.Resources.GetMatch (add .Params.identifier ".jpg") ) }}
     {{-  with .Value -}}
     "image" : "{{ .Permalink }}",
     {{- end }}{{- end }}
@@ -18,7 +18,7 @@
       {{ with .Site.Params.publisherId -}}, "@id": "{{ .  | jsonify -}}"{{- end -}}
     },
     "description": "{{ .Site.Params.Description }}",
-    "about": {{ with .Params.sm_subject_label -}}{{ .  | jsonify -}}{{- end -}},
+    "about": {{ .Params.subjects  | jsonify }},
     "provider": {
         "name":"New York University: The Tamiment Library and Robert F. Wagner Labor Archives",
         "url":"https://library.nyu.edu/about/collections/special-collections-and-archives/tamiment-wagner-archives/"
