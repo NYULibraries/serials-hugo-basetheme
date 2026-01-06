@@ -28,8 +28,8 @@ var dlts = {};
     window.addEventListener(
       "message",
       function (event) {
-        var data = JSON.parse(event.data);
         try {
+          var data = JSON.parse(event.data);
           if (data.fire) {
             switch (data.fire) {
               case "viewer:sequence:increase":
