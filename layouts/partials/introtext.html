@@ -1,4 +1,5 @@
 <div class="intro item itemwide">
-  <p>{{ .Site.Params.homepageabouttext | safeHTML }} <a href="{{ .Site.BaseURL  | relURL }}/about" class="readmore" aria-label="Read more about {{ .Title }}">READ&nbsp;MORE…</a></p>
-
+  <p>{{ .Site.Params.homepageabouttext | safeHTML }} {{ with .Site.GetPage "pages/about.md" }}
+  <a href="{{ .Permalink }}" class="readmore" aria-label="Read more about {{ .Site.Title }}">READ&nbsp;MORE…</a>
+{{ end }}</p>
 </div>

@@ -147,6 +147,20 @@ a.readmore {
     text-decoration: underline;
   }
 }
+.bobcat_record a {
+
+  svg  {
+    fill: $link-color !important;
+  }
+  .label:hover {
+    text-decoration: underline !important;
+  }
+}
+
+.icon svg path {
+  fill: $readmore-link-color;
+}
+
 
 
 .site-title {
