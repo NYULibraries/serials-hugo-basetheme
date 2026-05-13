@@ -2,9 +2,14 @@
 
 <main id="main-content">
   <h1 class="page-title">{{ .Title }}</h1>
-  {{- $bvu := .Site.Params.baseViewerURL -}}
-  {{- $dvu := urls.JoinPath .Site.Params.baseViewerURL "/viewer" .Params.path_alias }}
-<iframe class="viewer widget book" data-sequence="1" data-baseviewerurl="{{- $bvu -}}" data-identifier="{{- .Params.ss_book_identifier -}}" title="View Book: {{ .Title }}" src = "{{- $dvu -}}/1" allowfullscreen mozallowfullscreen webkitallowfullscreen></iframe>
+  {{ $bvu := site.Params.baseViewerURL -}}
+  {{- $dvu := urls.JoinPath site.Params.baseViewerURL "/viewer" .Params.path_alias -}}
+
+  {{- if isset site.Params "baseviewermiradorurl" -}}
+    {{- $dvu = urls.JoinPath site.Params.baseviewermiradorurl .Params.ss_book_identifier }}
+  {{- end -}}
+
+  <iframe class="viewer widget book" data-sequence="1" data-baseviewerurl="{{- $bvu -}}" data-identifier="{{- .Params.ss_book_identifier -}}" title="View Book: {{ .Title }}" src="{{- $dvu -}}/1" allowfullscreen mozallowfullscreen webkitallowfullscreen onload="document.querySelector('body').classList.remove('io-loading')"></iframe>
 </main>
 {{- partial "loading-animation-bubbling.html" . }}
 {{- partial "footer.html" . -}}
