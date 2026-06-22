@@ -1,10 +1,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+{{- $orgname := .Site.Params.orgname | default "NYU Libraries" -}}
+
 {{ if eq .Section "books"}}
 <title>{{ .Title }}: NYU Libraries</title>
 {{ else if eq .Section "pages"}}
-<title>{{ .Title }}: {{ .Site.Title }}: NYU Libraries</title>
+<title>{{ .Title }}: {{ .Site.Title }}: {{ $orgname}}</title>
 {{ else }}
 <title>{{ .Title }}: NYU Libraries</title>
 {{ end }}

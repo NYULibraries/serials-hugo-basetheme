@@ -3,7 +3,11 @@
 {{ else -}}
 <meta name="description" content="{{ .Site.Params.description }}">
 {{ end -}}
-<meta property="og:site_name" content="{{ .Site.Title }}">
+{{ with .Site.Params.orgname -}}
+<meta property="og:site_name" content="{{ . }}">
+{{- else }}
+<meta property="og:site_name" content="NYU Libraries">
+{{- end }}
 <meta property="og:title" content="{{ .Title }}">
 {{ if (and (.IsPage) (eq .Type "books")) -}}
 <meta property="og:type" content="books.book">
