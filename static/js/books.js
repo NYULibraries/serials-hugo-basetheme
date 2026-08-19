@@ -29,7 +29,8 @@ var dlts = {};
       "message",
       function (event) {
         try {
-          var data = JSON.parse(event.data);
+          var data = (typeof event.data === "string") ? (event.data ? JSON.parse(event.data) : null) : event.data;
+          if (!data) return;
           if (data.fire) {
             switch (data.fire) {
               case "viewer:sequence:increase":
@@ -43,7 +44,7 @@ var dlts = {};
             }
           }
         } catch (e) {
-          console.log(e)
+          // ignore non-JSON messages from third-party iframes
         }
       },
       false

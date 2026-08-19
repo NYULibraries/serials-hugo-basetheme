@@ -3,17 +3,28 @@
 {{ else -}}
 <meta name="description" content="{{ .Site.Params.description }}">
 {{ end -}}
-<meta property="og:site_name" content="{{ .Site.Title }}">
+{{- with .Site.Params.orgname -}}
+<meta property="og:site_name" content="{{ . }}">
+{{- else -}}
+<meta property="og:site_name" content="NYU Libraries">
+{{- end }}
 <meta property="og:title" content="{{ .Title }}">
-{{ if (and (.IsPage) (eq .Type "books")) -}}
+
+{{- /* Book pages only  */}}
+{{- if (and (.IsPage) (eq .Type "books")) }}
 <meta property="og:type" content="books.book">
 {{- with .Resources.GetMatch (add .Params.ss_book_identifier ".jpg") }}
 <meta property="og:image" content="{{ .Permalink }}">
 {{- end }}
 <meta property="books:release_date" content="{{ .Date.Format "2006-01-02" }}">
-{{- else -}}
-{{ with $.Param "thumbnailforentiresite" }}
-<meta property="og:image" content="{{ . | absURL }}">{{ end }}
-{{ end }}
+{{ end -}}
+
+{{- /* Other pages   */ -}}
+{{- if (ne .Type "books")  -}}
+{{- with $.Param "thumbnailforentiresite" }}
+<meta property="og:image" content="{{ . | absURL }}">
+{{- end }}
+{{- end }}
+
 <meta property="og:url" content="{{ .Permalink }}">
 

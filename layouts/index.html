@@ -33,6 +33,9 @@
           <div class="md_subjects">
             <span class="md_label">Subject:</span> {{ .Site.Params.subjectsstring }}
           </div>
+          {{ with .Site.Params.callnumber }}
+            <div><span class="md_label">Call Number:</span> {{ . }}</div>
+          {{ end }}
           {{ if .Site.Params.homepagespecialfile }}
           <div  class="index_link meta-link"><a class="readmore" href="{{- .Site.Params.homepagespecialfile | safeHTML -}}"> <span class="icon ext-link-icon" aria-hidden="true" role="presentation">{{- partial "svgs/pdf.svg" (dict "fill" "#c50f3c" "width" 14 "height" 17 ) -}}</span><span>Collection index (PDF)</span> </a></div>
           {{ end }}
