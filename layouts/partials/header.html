@@ -15,9 +15,6 @@
       <div class="navhold">
         <div class="inner">
           {{ partial "nav-links-main.html" . }}
-          {{ if .Site.Params.hassearch }}
-          <div class="searchbox" role="search">{{ partial "searchbox.html" . }}</div>
-          {{end}}
         </div>
       </div>
       {{end}}
